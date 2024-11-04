@@ -4,9 +4,9 @@ import sqlite3
 conn = sqlite3.connect('questions.db')
 cursor = conn.cursor()
 
-# Create a table named DS3860 to store questions and answers
+# Create a table named LAW2810 to store questions and answers
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS DS3860 (
+CREATE TABLE IF NOT EXISTS LAW2810 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     question TEXT NOT NULL,
     option_a TEXT NOT NULL,
@@ -17,53 +17,56 @@ CREATE TABLE IF NOT EXISTS DS3860 (
 )
 ''')
 
-# Function to insert a question into the DS3860 table
+# Function to insert a question into the LAW2810 table
 def insert_question(question, option_a, option_b, option_c, option_d, correct_answer):
     cursor.execute('''
-    INSERT INTO DS3860 (question, option_a, option_b, option_c, option_d, correct_answer)
+    INSERT INTO LAW2810 (question, option_a, option_b, option_c, option_d, correct_answer)
     VALUES (?, ?, ?, ?, ?, ?)
     ''', (question, option_a, option_b, option_c, option_d, correct_answer))
     conn.commit()
 
 # Questions in DB
 questions = [
-    ("Which MySQL command is used to create a new database?", 
-     "CREATE DATABASE", "NEW DATABASE", "ADD DATABASE", "MAKE DATABASE", "A"),
+    ("What is the primary purpose of contract law?", 
+     "To regulate business transactions", "To enforce agreements", 
+     "To protect consumers", "To set prices", "B"),
     
-    ("What is the function of the SELECT statement in MySQL?", 
-     "To insert data", "To update data", "To retrieve data", "To delete data", "C"),
+    ("Which of the following is an essential element of a valid contract?", 
+     "Offer", "Acceptance", "Consideration", "All of the above", "D"),
     
-    ("Which SQL clause is used to filter records?", 
-     "WHERE", "FILTER", "HAVING", "ORDER BY", "A"),
+    ("What term refers to the legal ability to enter into a contract?", 
+     "Capacity", "Legitimacy", "Authority", "Competence", "A"),
     
-    ("What command is used to delete a table in MySQL?", 
-     "REMOVE TABLE", "DELETE TABLE", "DROP TABLE", "CLEAR TABLE", "C"),
+    ("Which type of contract must be in writing to be enforceable?", 
+     "Verbal contracts", "Implied contracts", "Contracts for the sale of goods over a certain amount", "Informal contracts", "C"),
     
-    ("Which function is used to count the number of rows in a MySQL query?", 
-     "SUM()", "COUNT()", "TOTAL()", "NUMBER()", "B"),
+    ("What is the term for an agreement that is not legally enforceable?", 
+     "Void contract", "Valid contract", "Breach of contract", "Executed contract", "A"),
     
-    ("What does the acronym SQL stand for?", 
-     "Structured Query Language", "Simple Query Language", "Standard Query Language", "Sequential Query Language", "A"),
+    ("Which of the following is a defense to breach of contract?", 
+     "Impossibility", "Negligence", "Mistake", "All of the above", "A"),
     
-    ("Which data type is used for a variable that can hold text in MySQL?", 
-     "TEXT", "STRING", "CHAR", "VARCHAR", "D"),
+    ("What does tort law deal with?", 
+     "Criminal offenses", "Civil wrongs", "Contractual disputes", "Business regulations", "B"),
     
-    ("What is the purpose of the JOIN clause in MySQL?", 
-     "To combine rows from two or more tables", "To filter data", "To sort data", "To create a new table", "A"),
+    ("What is the legal term for the transfer of property ownership?", 
+     "Assignment", "Delegation", "Conveyance", "Subrogation", "C"),
     
-    ("Which MySQL statement is used to update existing data in a table?", 
-     "MODIFY", "UPDATE", "CHANGE", "SET", "B"),
+    ("Which of the following entities provides limited liability protection to its owners?", 
+     "Sole proprietorship", "Partnership", "Corporation", "General partnership", "C"),
     
-    ("What is the default port number for MySQL server?", 
-     "5432", "3306", "8080", "1521", "B"),
+    ("What does the term 'due diligence' refer to in business law?", 
+     "The process of legal compliance", "The investigation of a business before a transaction", 
+     "The negotiation of contract terms", "The enforcement of laws", "B"),
 ]
+
 
 
 # Insert sample data into the DS3860 table
 for q in questions:
     insert_question(*q)
 
-print("Questions have been inserted into the DS3860 table.")
+print("Questions have been inserted into the LAW2810 table.")
 
 # Close the connection
 conn.close()
