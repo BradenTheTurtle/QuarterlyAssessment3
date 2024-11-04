@@ -4,9 +4,9 @@ import sqlite3
 conn = sqlite3.connect('questions.db')
 cursor = conn.cursor()
 
-# Create a table named DS3850 to store questions and answers
+# Create a table named DS3860 to store questions and answers
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS DS3850 (
+CREATE TABLE IF NOT EXISTS DS3860 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     question TEXT NOT NULL,
     option_a TEXT NOT NULL,
@@ -17,84 +17,53 @@ CREATE TABLE IF NOT EXISTS DS3850 (
 )
 ''')
 
-# Function to insert a question into the DS3850 table
+# Function to insert a question into the DS3860 table
 def insert_question(question, option_a, option_b, option_c, option_d, correct_answer):
     cursor.execute('''
-    INSERT INTO DS3850 (question, option_a, option_b, option_c, option_d, correct_answer)
+    INSERT INTO DS3860 (question, option_a, option_b, option_c, option_d, correct_answer)
     VALUES (?, ?, ?, ?, ?, ?)
     ''', (question, option_a, option_b, option_c, option_d, correct_answer))
     conn.commit()
 
 # Questions in DB
 questions = [
-    ("What is the correct syntax to output 'Hello, World' in Python?", 
-     "echo('Hello, World')", "print('Hello, World')", "console.log('Hello, World')", "printf('Hello, World')", "B"),
+    ("Which MySQL command is used to create a new database?", 
+     "CREATE DATABASE", "NEW DATABASE", "ADD DATABASE", "MAKE DATABASE", "A"),
     
-    ("Which of the following is a correct variable name in Python?", 
-     "1variable", "variable_name", "variable-name", "var name", "B"),
+    ("What is the function of the SELECT statement in MySQL?", 
+     "To insert data", "To update data", "To retrieve data", "To delete data", "C"),
     
-    ("Which keyword is used to create a function in Python?", 
-     "function", "def", "fun", "define", "B"),
+    ("Which SQL clause is used to filter records?", 
+     "WHERE", "FILTER", "HAVING", "ORDER BY", "A"),
     
-    ("What will be the output of the following code? \n\nprint(type(3))",
-     "<class 'float'>", "<class 'int'>", "<class 'str'>", "<class 'bool'>", "B"),
+    ("What command is used to delete a table in MySQL?", 
+     "REMOVE TABLE", "DELETE TABLE", "DROP TABLE", "CLEAR TABLE", "C"),
     
-    ("Which of the following is not a Python data type?",
-     "list", "dictionary", "tuple", "array", "D"),
+    ("Which function is used to count the number of rows in a MySQL query?", 
+     "SUM()", "COUNT()", "TOTAL()", "NUMBER()", "B"),
     
-    ("How do you insert comments in Python code?",
-     "// This is a comment", "/* This is a comment */", "# This is a comment", "<!-- This is a comment -->", "C"),
+    ("What does the acronym SQL stand for?", 
+     "Structured Query Language", "Simple Query Language", "Standard Query Language", "Sequential Query Language", "A"),
     
-    ("What is the output of this code? \n\nx = [1, 2, 3]\nprint(len(x))",
-     "1", "2", "3", "4", "C"),
+    ("Which data type is used for a variable that can hold text in MySQL?", 
+     "TEXT", "STRING", "CHAR", "VARCHAR", "D"),
     
-    ("What will be the output of this code? \n\nprint(10 // 3)",
-     "3.33", "3", "3.0", "Error", "B"),
+    ("What is the purpose of the JOIN clause in MySQL?", 
+     "To combine rows from two or more tables", "To filter data", "To sort data", "To create a new table", "A"),
     
-    ("Which method can be used to convert a string to lowercase in Python?", 
-     "lower()", "tolowercase()", "strtolower()", "toLowerCase()", "A"),
+    ("Which MySQL statement is used to update existing data in a table?", 
+     "MODIFY", "UPDATE", "CHANGE", "SET", "B"),
     
-    ("Which of the following operators is used for exponentiation in Python?", 
-     "^", "**", "//", "exp()", "B"),
-    
-    ("What does the 'len' function do in Python?",
-     "Finds the length of a string", "Calculates the sum of numbers", "Converts to lowercase", "Rounds a number", "A"),
-    
-    ("What is the output of this code? \n\nx = 'Hello'\nprint(x[1])",
-     "H", "e", "l", "o", "B"),
-    
-    ("What is the result of '5 + 3 * 2' in Python?", 
-     "11", "16", "13", "10", "A"),
-    
-    ("Which of these is the correct syntax to open a file named 'file.txt' in read mode?", 
-     "open('file.txt')", "open('file.txt', 'r')", "open('file.txt', 'read')", "open('file.txt', 'w')", "B"),
-    
-    ("Which function is used to generate random numbers in Python?", 
-     "randomize()", "rand()", "random()", "generate_random()", "C"),
-    
-    ("Which module provides support for regular expressions in Python?", 
-     "re", "regex", "exp", "expressions", "A"),
-    
-    ("Which of the following statements will check if 'x' is equal to 'y'?", 
-     "x = y", "x == y", "x != y", "x equal y", "B"),
-    
-    ("What is the default return value of a function that doesn't return anything explicitly?", 
-     "0", "None", "null", "Undefined", "B"),
-    
-    ("Which of the following can be used to handle exceptions in Python?", 
-     "try/except", "catch/try", "handle/error", "throw/catch", "A"),
-    
-    ("Which loop is best to use when you know the exact number of iterations needed?", 
-     "while loop", "for loop", "do-while loop", "None of the above", "B"),
+    ("What is the default port number for MySQL server?", 
+     "5432", "3306", "8080", "1521", "B"),
 ]
 
-    # Add more questions here as needed
 
-# Insert sample data into the DS3850 table
+# Insert sample data into the DS3860 table
 for q in questions:
     insert_question(*q)
 
-print("Questions have been inserted into the DS3850 table.")
+print("Questions have been inserted into the DS3860 table.")
 
 # Close the connection
 conn.close()
