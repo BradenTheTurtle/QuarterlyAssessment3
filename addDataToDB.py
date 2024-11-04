@@ -4,9 +4,9 @@ import sqlite3
 conn = sqlite3.connect('questions.db')
 cursor = conn.cursor()
 
-# Create a table named LAW2810 to store questions and answers
+# Create a table named DS2810 to store questions and answers
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS LAW2810 (
+CREATE TABLE IF NOT EXISTS DS2810 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     question TEXT NOT NULL,
     option_a TEXT NOT NULL,
@@ -17,56 +17,56 @@ CREATE TABLE IF NOT EXISTS LAW2810 (
 )
 ''')
 
-# Function to insert a question into the LAW2810 table
+# Function to insert a question into the DS2810 table
 def insert_question(question, option_a, option_b, option_c, option_d, correct_answer):
     cursor.execute('''
-    INSERT INTO LAW2810 (question, option_a, option_b, option_c, option_d, correct_answer)
+    INSERT INTO DS2810 (question, option_a, option_b, option_c, option_d, correct_answer)
     VALUES (?, ?, ?, ?, ?, ?)
     ''', (question, option_a, option_b, option_c, option_d, correct_answer))
     conn.commit()
 
 # Questions in DB
 questions = [
-    ("What is the primary purpose of contract law?", 
-     "To regulate business transactions", "To enforce agreements", 
-     "To protect consumers", "To set prices", "B"),
+    ("What is the file extension for an Excel workbook?", 
+     ".xls", ".xlsx", ".xlsm", ".xlsb", "B"),
     
-    ("Which of the following is an essential element of a valid contract?", 
-     "Offer", "Acceptance", "Consideration", "All of the above", "D"),
+    ("Which Excel function is used to find the minimum value in a range?", 
+     "MIN()", "LOWEST()", "MINIMUM()", "LEAST()", "A"),
     
-    ("What term refers to the legal ability to enter into a contract?", 
-     "Capacity", "Legitimacy", "Authority", "Competence", "A"),
+    ("What is the shortcut to save a workbook in Excel?", 
+     "Ctrl + S", "Ctrl + P", "Alt + S", "Shift + S", "A"),
     
-    ("Which type of contract must be in writing to be enforceable?", 
-     "Verbal contracts", "Implied contracts", "Contracts for the sale of goods over a certain amount", "Informal contracts", "C"),
+    ("What feature allows you to automatically fill cells with data based on a pattern?", 
+     "AutoFill", "Flash Fill", "Fill Handle", "Data Series", "C"),
     
-    ("What is the term for an agreement that is not legally enforceable?", 
-     "Void contract", "Valid contract", "Breach of contract", "Executed contract", "A"),
+    ("Which formula would you use to add up a range of cells?", 
+     "ADD()", "SUM()", "TOTAL()", "SUMIF()", "B"),
     
-    ("Which of the following is a defense to breach of contract?", 
-     "Impossibility", "Negligence", "Mistake", "All of the above", "A"),
+    ("What does the VLOOKUP function do?", 
+     "Looks up a value vertically in a table", "Calculates the average", 
+     "Counts the number of cells", "Finds the maximum value", "A"),
     
-    ("What does tort law deal with?", 
-     "Criminal offenses", "Civil wrongs", "Contractual disputes", "Business regulations", "B"),
+    ("Which option is used to format cells in Excel?", 
+     "Cell Styles", "Format as Table", "Conditional Formatting", "All of the above", "D"),
     
-    ("What is the legal term for the transfer of property ownership?", 
-     "Assignment", "Delegation", "Conveyance", "Subrogation", "C"),
+    ("How can you freeze panes in an Excel worksheet?", 
+     "View > Freeze Panes", "Data > Freeze", "Layout > Freeze Rows", "Home > Freeze", "A"),
     
-    ("Which of the following entities provides limited liability protection to its owners?", 
-     "Sole proprietorship", "Partnership", "Corporation", "General partnership", "C"),
+    ("What function would you use to concatenate text from two cells?", 
+     "JOIN()", "CONCATENATE()", "MERGE()", "TEXTJOIN()", "B"),
     
-    ("What does the term 'due diligence' refer to in business law?", 
-     "The process of legal compliance", "The investigation of a business before a transaction", 
-     "The negotiation of contract terms", "The enforcement of laws", "B"),
+    ("Which symbol is used to start a formula in Excel?", 
+     "=", ":", "+", "#", "A"),
 ]
 
 
 
-# Insert sample data into the DS3860 table
+
+# Insert sample data into the DS2810 table
 for q in questions:
     insert_question(*q)
 
-print("Questions have been inserted into the LAW2810 table.")
+print("Questions have been inserted into the DS2810 table.")
 
 # Close the connection
 conn.close()
